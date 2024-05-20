@@ -1,0 +1,35 @@
+Method: POST
+URL: https://www.Kridcharid/api/login
+Body:
+{
+  "username": "Addmin",
+  "password": "Passw@rd",
+  "expiresIn": 60000
+}
+*expiresIn, i.e., token expire time (millisec), is optional
+
+Response (200: OK):
+{
+  "status": "ok",
+  "message": "Logged in",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cC...",
+  "expiresIn": 60000,
+  "user": {
+    "id": 1,
+    "fname": "Addmin",
+    "lname": "Addmin",
+    "username": "Addmin",
+    "email": "Addmin@gmail.com",
+    "avatar": "https://www.melivecode.com/users/1.png"
+  }
+}
+Response (400: Bad Request):
+{
+  "status": "error",
+  "message": "Missing username and/or password"
+}
+Response (401: Unauthorized):
+{
+  "status": "error",
+  "message": "Login failed"
+}
